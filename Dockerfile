@@ -21,4 +21,4 @@ RUN cp --no-clobber /docker-registry/config/config_sample.yml /docker-registry/c
 
 EXPOSE 5000
 
-CMD cd /docker-registry && ./setup-configs.sh && ./run.sh
+CMD trap exit TERM; cd /docker-registry && ./setup-configs.sh && ./run.sh & wait
